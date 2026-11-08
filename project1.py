@@ -4,12 +4,12 @@ from datetime import date
  
 #  Create the main window
 root = Tk()
-root.title("Workshop Participant Greeting")
+root.title("Greeting")
 root.geometry("400x300")
  
 #  Create the heading label
 heading = Label(
-    text="Workshop Welcome Desk",
+    text="Workshop Welcome  to the widget workshop!",
     fg="white",
     bg="#072F5F",
     height=1,
@@ -24,16 +24,13 @@ name_label = Label(
 name_entry = Entry()
  
 # PART 4: Create the display function
-def display_welcome():
+def display_hi():
     # Read the participant's name from the Entry widget
     name = name_entry.get()
  
-    # Clear the previous message
-    text_box.delete(1.0, END)
- 
     # Create the multi-line welcome message
-    greeting = "Hello " + name + "!\n"
-    message = "Welcome to the workshop.\n"
+    greeting = "HI " + name + "!\n"
+    message = "Welcome to the widget workshop!\n"
     workshop_date = "Date: " + str(date.today())
  
     # Insert the message into the Text widget
@@ -50,9 +47,9 @@ text_box = Text(
 #  Create the button and connect its command
 welcome_button = Button(
     text="Check In",
-    command=display_welcome,
+    command=display_hi,
     height=1,
-    bg="#1261A0",
+    bg="#5B88AD",
     fg="white"
 )
  
