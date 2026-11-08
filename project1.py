@@ -1,18 +1,67 @@
-print("My Daily Routine")
-
-# Step 1: Waking up
-print("I wake up at 7 AM.")
-
-# Step 2: Going to school
-print("I go to school at 8 AM.")
-
-# Step 3: Playing after school
-print("I play with my friends in the evening.")
-
-# Step 4: Studying
-print("I study for 2 hours at night.")
-
-# Step 4: Studying
-print("I study for 2 hours at night.")
-
-print("Total study hours in a week:", 2 * 7)
+# Import necessary libraries
+from tkinter import *
+from datetime import date
+ 
+#  Create the main window
+root = Tk()
+root.title("Workshop Participant Greeting")
+root.geometry("400x300")
+ 
+#  Create the heading label
+heading = Label(
+    text="Workshop Welcome Desk",
+    fg="white",
+    bg="#072F5F",
+    height=1,
+    width=300
+)
+ 
+#  Create a label and Entry widget
+name_label = Label(
+    text="Participant Name",
+    bg="#3895D3"
+)
+name_entry = Entry()
+ 
+# PART 4: Create the display function
+def display_welcome():
+    # Read the participant's name from the Entry widget
+    name = name_entry.get()
+ 
+    # Clear the previous message
+    text_box.delete(1.0, END)
+ 
+    # Create the multi-line welcome message
+    greeting = "Hello " + name + "!\n"
+    message = "Welcome to the workshop.\n"
+    workshop_date = "Date: " + str(date.today())
+ 
+    # Insert the message into the Text widget
+    text_box.insert(END, greeting)
+    text_box.insert(END, message)
+    text_box.insert(END, workshop_date)
+ 
+#Create the Text widget
+text_box = Text(
+    height=4,
+    width=40
+)
+ 
+#  Create the button and connect its command
+welcome_button = Button(
+    text="Check In",
+    command=display_welcome,
+    height=1,
+    bg="#1261A0",
+    fg="white"
+)
+ 
+#  Arrange the widgets
+heading.pack()
+name_label.pack(pady=10)
+name_entry.pack()
+welcome_button.pack(pady=10)
+text_box.pack()
+ 
+# Start the Tkinter event loop
+root.mainloop()
